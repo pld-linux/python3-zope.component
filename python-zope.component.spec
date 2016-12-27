@@ -1,8 +1,9 @@
+%define module	zope.component
 Summary:	Core of the Zope Component Architecture
 Summary(pl.UTF-8):	Rdzeń Zope Component Architecture
-Name:		Zope-Component
+Name:		python-%{module}
 Version:	3.10.0
-Release:	2
+Release:	1
 License:	ZPL 2.1
 Group:		Libraries/Python
 Source0:	http://pypi.python.org/packages/source/z/zope.component//zope.component-%{version}.tar.gz
@@ -12,13 +13,15 @@ BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	python-setuptools
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.710
-Requires:	Zope-DeferredImport
-Requires:	Zope-Deprecation
-Requires:	Zope-Event
-Requires:	Zope-Interface
-Requires:	Zope-Proxy
-Requires:	Zope-Testing
+Requires:	python-zope.deferredimport
+Requires:	python-zope.deprecation
+Requires:	python-zope.event
+Requires:	python-zope.interface
+Requires:	python-zope.proxy
+Requires:	python-zope.testing
 Requires:	python-modules
+Obsoletes:	Zope-Component
+Provides:	Zope-Component
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
