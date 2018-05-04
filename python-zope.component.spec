@@ -1,9 +1,14 @@
+#
+# Conditional build:
+%bcond_without	python2 # CPython 2.x module
+%bcond_without	python3 # CPython 3.x module
+
 %define module	zope.component
 Summary:	Core of the Zope Component Architecture
 Summary(pl.UTF-8):	Rdzeń Zope Component Architecture
 Name:		python-%{module}
 Version:	4.4.1
-Release:	1
+Release:	2
 License:	ZPL 2.1
 Group:		Libraries/Python
 Source0:	https://files.pythonhosted.org/packages/source/z/zope.component/zope.component-%{version}.tar.gz
@@ -30,24 +35,59 @@ Core of the Zope Component Architecture.
 %description -l pl.UTF-8
 Rdzeń architektury komponentowej Zope Component Architecture.
 
+%package -n python3-zope.component
+Summary:	Core of the Zope Component Architecture
+Summary(pl.UTF-8):	Rdzeń Zope Component Architecture
+Group:		Libraries/Python
+
+%description -n python3-zope.component
+Core of the Zope Component Architecture.
+
+%description -n python3-zope.component -l pl.UTF-8
+Rdzeń architektury komponentowej Zope Component Architecture.
+
 %prep
 %setup -q -n zope.component-%{version}
 
 %build
-%py_build
+%if %{with python2}
+%py_build %{?with_tests:test}
+%endif
+
+%if %{with python3}
+%py3_build %{?with_tests:test}
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
+%if %{with python2}
 %py_install \
-	--install-purelib=%{py_sitedir} \
+	--install-purelib=%{py_sitedir}
 
 %py_postclean
+%endif
+
+%if %{with python3}
+%py3_install \
+	--install-purelib=%{py3_sitedir}
+%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%if %{with python2}
 %{py_sitedir}/zope/component
 %{py_sitedir}/zope.component-*.egg-info
 %{py_sitedir}/zope.component-*-nspkg.pth
+%endif
+
+%files -n python3-zope.component
+%defattr(644,root,root,755)
+%if %{with python3}
+%{py3_sitedir}/zope/component
+%{py3_sitedir}/zope.component-*.egg-info
+%{py3_sitedir}/zope.component-*-nspkg.pth
+%endif
