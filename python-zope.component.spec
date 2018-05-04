@@ -2,12 +2,12 @@
 Summary:	Core of the Zope Component Architecture
 Summary(pl.UTF-8):	Rdzeń Zope Component Architecture
 Name:		python-%{module}
-Version:	3.10.0
+Version:	4.4.1
 Release:	1
 License:	ZPL 2.1
 Group:		Libraries/Python
-Source0:	http://pypi.python.org/packages/source/z/zope.component//zope.component-%{version}.tar.gz
-# Source0-md5:	8041d92540e701943daed97329012348
+Source0:	https://files.pythonhosted.org/packages/source/z/zope.component/zope.component-%{version}.tar.gz
+# Source0-md5:	dc43aca08995751159e4b0f98f5afc5a
 BuildRequires:	python >= 1:2.5
 BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	python-setuptools
