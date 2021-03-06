@@ -3,12 +3,14 @@
 %bcond_without	python2 # CPython 2.x module
 %bcond_without	python3 # CPython 3.x module
 
+%define		_enable_debug_packages	0
+
 %define module	zope.component
 Summary:	Core of the Zope Component Architecture
 Summary(pl.UTF-8):	Rdzeń Zope Component Architecture
 Name:		python-%{module}
 Version:	4.4.1
-Release:	4
+Release:	5
 License:	ZPL 2.1
 Group:		Libraries/Python
 Source0:	https://files.pythonhosted.org/packages/source/z/zope.component/zope.component-%{version}.tar.gz
