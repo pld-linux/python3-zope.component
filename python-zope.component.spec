@@ -10,7 +10,7 @@ Summary:	Core of the Zope Component Architecture
 Summary(pl.UTF-8):	Rdzeń Zope Component Architecture
 Name:		python-%{module}
 Version:	4.4.1
-Release:	5
+Release:	6
 License:	ZPL 2.1
 Group:		Libraries/Python
 Source0:	https://files.pythonhosted.org/packages/source/z/zope.component/zope.component-%{version}.tar.gz
@@ -36,6 +36,7 @@ Requires:	python-zope.testing
 Requires:	python-modules
 Obsoletes:	Zope-Component
 Provides:	Zope-Component
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -72,14 +73,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %if %{with python2}
 %py_install \
-	--install-purelib=%{py_sitedir}
+	--install-purelib=%{py_sitescriptdir}
 
 %py_postclean
 %endif
 
 %if %{with python3}
 %py3_install \
-	--install-purelib=%{py3_sitedir}
+	--install-purelib=%{py3_sitescriptdir}
 %endif
 
 %clean
@@ -88,15 +89,15 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %if %{with python2}
-%{py_sitedir}/zope/component
-%{py_sitedir}/zope.component-*.egg-info
-%{py_sitedir}/zope.component-*-nspkg.pth
+%{py_sitescriptdir}/zope/component
+%{py_sitescriptdir}/zope.component-*.egg-info
+%{py_sitescriptdir}/zope.component-*-nspkg.pth
 %endif
 
 %files -n python3-zope.component
 %defattr(644,root,root,755)
 %if %{with python3}
-%{py3_sitedir}/zope/component
-%{py3_sitedir}/zope.component-*.egg-info
-%{py3_sitedir}/zope.component-*-nspkg.pth
+%{py3_sitescriptdir}/zope/component
+%{py3_sitescriptdir}/zope.component-*.egg-info
+%{py3_sitescriptdir}/zope.component-*-nspkg.pth
 %endif
