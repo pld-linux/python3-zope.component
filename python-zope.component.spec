@@ -9,16 +9,17 @@
 Summary:	Core of the Zope Component Architecture
 Summary(pl.UTF-8):	Rdzeń Zope Component Architecture
 Name:		python-%{module}
-Version:	4.6.2
+# keep 5.x here for python2 support
+Version:	5.1.0
 Release:	1
 License:	ZPL v2.1
 Group:		Libraries/Python
 Source0:	https://files.pythonhosted.org/packages/source/z/zope.component/zope.component-%{version}.tar.gz
-# Source0-md5:	a2ff90ec57119f0e568fa4aa64a57ebd
+# Source0-md5:	40f0fa6d002d443dad7dab2e11f2d79f
 URL:		https://www.zope.dev/
 %if %{with python2}
-BuildRequires:	python >= 1:2.5
-BuildRequires:	python-devel >= 1:2.5
+BuildRequires:	python >= 1:2.7
+BuildRequires:	python-devel >= 1:2.7
 BuildRequires:	python-setuptools
 %if %{with tests}
 BuildRequires:	python-persistent
@@ -28,7 +29,7 @@ BuildRequires:	python-zope.deprecation >= 4.3.0
 BuildRequires:	python-zope.event
 BuildRequires:	python-zope.hookable >= 4.2.0
 BuildRequires:	python-zope.i18nmessageid
-BuildRequires:	python-zope.interface >= 4.1.0
+BuildRequires:	python-zope.interface >= 5.3.0
 BuildRequires:	python-zope.location
 BuildRequires:	python-zope.proxy
 BuildRequires:	python-zope.security
@@ -37,8 +38,8 @@ BuildRequires:	python-zope.testrunner
 %endif
 %endif
 %if %{with python3}
-BuildRequires:	python3 >= 1:3.2
-BuildRequires:	python3-devel >= 1:3.2
+BuildRequires:	python3 >= 1:3.5
+BuildRequires:	python3-devel >= 1:3.5
 BuildRequires:	python3-setuptools
 %if %{with tests}
 BuildRequires:	python3-persistent
@@ -48,7 +49,7 @@ BuildRequires:	python3-zope.deprecation >= 4.3.0
 BuildRequires:	python3-zope.event
 BuildRequires:	python3-zope.hookable >= 4.2.0
 BuildRequires:	python3-zope.i18nmessageid
-BuildRequires:	python3-zope.interface >= 4.1.0
+BuildRequires:	python3-zope.interface >= 5.3.0
 BuildRequires:	python3-zope.location
 BuildRequires:	python3-zope.proxy
 BuildRequires:	python3-zope.security
@@ -64,16 +65,10 @@ BuildRequires:	python3-zope.deferredimport >= 4.2.1
 BuildRequires:	python3-zope.deprecation >= 4.3.0
 BuildRequires:	python3-zope.event
 BuildRequires:	python3-zope.hookable >= 4.2.0
-BuildRequires:	python3-zope.interface >= 4.1.0
+BuildRequires:	python3-zope.interface >= 5.3.0
 BuildRequires:	sphinx-pdg-3
 %endif
-#Requires:	python-zope.deferredimport
-#Requires:	python-zope.deprecation
-#Requires:	python-zope.event
-#Requires:	python-zope.interface
-#Requires:	python-zope.proxy
-#Requires:	python-zope.testing
-Requires:	python-modules >= 1:2.5
+Requires:	python-modules >= 1:2.7
 Provides:	Zope-Component
 Obsoletes:	Zope-Component < 4
 BuildArch:	noarch
@@ -89,7 +84,7 @@ Rdzeń architektury komponentowej Zope Component Architecture.
 Summary:	Core of the Zope Component Architecture
 Summary(pl.UTF-8):	Rdzeń Zope Component Architecture
 Group:		Libraries/Python
-Requires:	python3-modules >= 1:3.2
+Requires:	python3-modules >= 1:3.5
 
 %description -n python3-zope.component
 Core of the Zope Component Architecture.
