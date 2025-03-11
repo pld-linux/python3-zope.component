@@ -11,7 +11,7 @@ Summary(pl.UTF-8):	Rdzeń Zope Component Architecture
 Name:		python-%{module}
 # keep 5.x here for python2 support
 Version:	5.1.0
-Release:	2
+Release:	3
 License:	ZPL v2.1
 Group:		Libraries/Python
 Source0:	https://files.pythonhosted.org/packages/source/z/zope.component/zope.component-%{version}.tar.gz
