@@ -1,0 +1,17 @@
+--- zope.component-6.0/docs/conf.py.orig	2023-04-14 08:04:41.000000000 +0200
++++ zope.component-6.0/docs/conf.py	2025-05-05 21:45:10.978352669 +0200
+@@ -275,9 +275,9 @@ autoclass_content = 'both'
+ # How to display URL addresses: 'footnote', 'no', or 'inline'.
+ #texinfo_show_urls = 'footnote'
+ intersphinx_mapping = {
+-    'https://docs.python.org/3/': None,
+-    'https://zopeinterface.readthedocs.io/en/latest/': None,
+-    'https://zopesecurity.readthedocs.io/en/latest/': None,
+-    'https://zopeevent.readthedocs.io/en/latest/': None,
+-    'https://persistent.readthedocs.io/en/latest/': None,
++    'python': ('https://docs.python.org/3/', None),
++    'zope.interface': ('https://zopeinterface.readthedocs.io/en/latest/', None),
++    'zope.security': ('https://zopesecurity.readthedocs.io/en/latest/', None),
++    'zope.event': ('https://zopeevent.readthedocs.io/en/latest/', None),
++    'persistent': ('https://persistent.readthedocs.io/en/latest/', None),
+ }

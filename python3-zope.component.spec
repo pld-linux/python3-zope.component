@@ -13,6 +13,7 @@ License:	ZPL v2.1
 Group:		Libraries/Python
 Source0:	https://files.pythonhosted.org/packages/source/z/zope.component/zope.component-%{version}.tar.gz
 # Source0-md5:	55d4d24f425b18e2368a18c468f8cc47
+Patch0:		zope.component-intersphinx.patch
 URL:		https://www.zope.dev/
 BuildRequires:	python3 >= 1:3.7
 BuildRequires:	python3-devel >= 1:3.7
@@ -66,6 +67,7 @@ Dokumentacja API modułu Pythona zope.deferredimport.
 
 %prep
 %setup -q -n zope.component-%{version}
+%patch -P0 -p1
 
 %build
 %py3_build %{?with_tests:test}
