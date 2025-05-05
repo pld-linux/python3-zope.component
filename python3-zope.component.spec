@@ -70,7 +70,12 @@ Dokumentacja API modułu Pythona zope.deferredimport.
 %patch -P0 -p1
 
 %build
-%py3_build %{?with_tests:test}
+%py3_build
+
+%if %{with tests}
+PYTHONPATH=$(pwd)/src \
+zope-testrunner-3 --test-path=src -v
+%endif
 
 %if %{with doc}
 PYTHONPATH=$(pwd)/src \
